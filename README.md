@@ -7,13 +7,13 @@ Pictures and explanations come from NASA. SpaceNavigator is an independent proje
 ## Run
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-`npm run build` does not need API keys. Picture pages render at request time. If `NASA_API_KEY` is missing, those pages show an unavailable state instead of crashing. A date that is not a real Astronomy Picture of the Day returns the not-found screen.
+`pnpm build` does not need API keys. Picture pages render at request time. If `NASA_API_KEY` is missing, those pages show an unavailable state instead of crashing. A date that is not a real Astronomy Picture of the Day returns the not-found screen.
 
 The pictures are requested from `https://api.nasa.gov/planetary/apod`. When that response is the site logo instead of the photograph, SpaceNavigator reads the same day's published entry from NASA Science so the page still shows the picture.
 
