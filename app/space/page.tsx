@@ -19,7 +19,7 @@ export default async function SpacePage() {
 
   return (
     <div className="px-6 pt-24 pb-20 md:px-12">
-      <p className="font-heading text-[0.7rem] tracking-[0.28em] text-muted-foreground uppercase">
+      <p className="font-heading text-lg tracking-[0.14em] text-muted-foreground uppercase">
         Space
       </p>
       <h1 className="mt-4 max-w-4xl font-heading text-[clamp(3.5rem,8vw,6.5rem)] leading-[0.86] font-medium tracking-tight uppercase">
@@ -54,7 +54,7 @@ export default async function SpacePage() {
                 <div className="flex flex-col gap-2">
                   <time
                     dateTime={item.date}
-                    className="font-heading text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase"
+                    className="font-heading text-base tracking-[0.12em] text-muted-foreground uppercase"
                   >
                     {item.mediaType === "video"
                       ? `Motion · ${formatApodDate(item.date)}`

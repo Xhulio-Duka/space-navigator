@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="flex min-h-svh flex-col justify-end px-6 pt-28 pb-16 md:px-12">
-        <p className="font-heading text-[0.7rem] tracking-[0.28em] text-muted-foreground uppercase">
+        <p className="font-heading text-lg tracking-[0.14em] text-muted-foreground uppercase">
           About
         </p>
         <h1 className="mt-4 max-w-5xl font-heading text-[clamp(3.2rem,8vw,6.75rem)] leading-[0.86] font-medium tracking-tight text-balance uppercase">
