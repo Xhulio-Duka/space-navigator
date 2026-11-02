@@ -9,6 +9,7 @@ import {
   formatApodDate,
   frameSrc,
   getPicture,
+  isApodSlug,
   lede,
 } from "@/lib/apod"
 
@@ -34,6 +35,10 @@ export async function generateMetadata({
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params
+  if (!isApodSlug(slug)) {
+    notFound()
+  }
+
   const result = await getPicture(slug)
 
   if (result.status === "not-found") {
