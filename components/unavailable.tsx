@@ -24,7 +24,7 @@ export function Unavailable({
 
   return (
     <section className="flex min-h-svh flex-col justify-end px-6 pt-24 pb-16 md:px-12">
-      <p className="font-heading text-[0.7rem] tracking-[0.28em] text-muted-foreground uppercase">
+      <p className="font-heading text-lg tracking-[0.14em] text-muted-foreground uppercase">
         {copy.kicker}
       </p>
       <h1 className="mt-4 max-w-4xl font-heading text-[clamp(3rem,8vw,6.25rem)] leading-[0.86] font-medium tracking-tight text-balance uppercase">

@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="relative z-10 flex w-full flex-col gap-4 px-6 pt-28 pb-14 md:px-12 md:pb-20">
           <time
             dateTime={item.date}
-            className="font-heading text-[0.7rem] tracking-[0.28em] text-white/80 uppercase"
+            className="font-heading text-lg tracking-[0.14em] text-white/80 uppercase"
           >
             {item.mediaType === "video"
               ? `Motion · ${formatApodDate(item.date)}`
@@ -80,11 +80,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="flex flex-col gap-6 md:col-span-4">
           <Link
             href="/space"
-            className="w-fit font-heading text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+            className="w-fit font-heading text-base tracking-[0.12em] text-muted-foreground uppercase hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
             Archive
           </Link>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-base leading-relaxed text-muted-foreground">
             {item.copyright
               ? `Credit ${item.copyright}`
               : "Credit NASA Astronomy Picture of the Day"}
@@ -115,7 +115,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
         </div>
         <div className="flex flex-col gap-6 md:col-span-7 md:col-start-6">
-          <h2 className="font-heading text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase">
+          <h2 className="font-heading text-base tracking-[0.12em] text-muted-foreground uppercase">
             Explanation
           </h2>
           {paragraphs.map((paragraph) => (

@@ -28,11 +28,11 @@ export default async function HomePage() {
       {recent.map((item) => (
         <PicturePanel key={item.date} item={item} />
       ))}
-      <section className="flex min-h-svh flex-col justify-end px-6 py-16 md:px-12">
-        <p className="font-heading text-[0.7rem] tracking-[0.28em] text-muted-foreground uppercase">
+      <section className="flex flex-col px-6 py-14 md:px-12 md:py-16">
+        <p className="font-heading text-lg tracking-[0.14em] text-muted-foreground uppercase">
           SpaceNavigator
         </p>
-        <h2 className="mt-5 max-w-5xl font-heading text-[clamp(3rem,8vw,6.6rem)] leading-[0.86] font-medium tracking-tight uppercase">
+        <h2 className="mt-4 max-w-4xl font-heading text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.88] font-medium tracking-tight uppercase">
           One frame.
           <br />
           Every day.

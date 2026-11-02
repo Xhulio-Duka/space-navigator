@@ -51,7 +51,7 @@ export function SiteHeader() {
                   href={link.href}
                   aria-current={current ? "page" : undefined}
                   className={cn(
-                    "font-heading text-[0.7rem] tracking-[0.22em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
+                    "font-heading text-sm tracking-[0.16em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
                     current
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"

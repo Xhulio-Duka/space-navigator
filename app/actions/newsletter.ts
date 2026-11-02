@@ -3,6 +3,7 @@
 import { Resend } from "resend"
 import { z } from "zod"
 import type { NewsletterState } from "@/lib/newsletter"
+import { claimSignup } from "@/lib/newsletter-signups"
 
 const emailSchema = z.email("Enter a valid email address.")
 
@@ -40,20 +41,40 @@ export async function subscribeToNewsletter(
     }
   }
 
+  const address = parsed.data.toLowerCase()
   const resend = new Resend(apiKey)
-  const { error } = await resend.emails.send({
-    from: SENDER,
-    to: recipient,
-    replyTo: parsed.data,
-    subject: "New SpaceNavigator subscriber",
-    text: `${parsed.data} asked to receive the SpaceNavigator daily note.`,
+  const claim = await claimSignup(address, async () => {
+    const { error } = await resend.emails.send({
+      from: SENDER,
+      to: recipient,
+      replyTo: address,
+      subject: "New SpaceNavigator subscriber",
+      text: `${address} asked to receive the SpaceNavigator daily note.`,
+    })
+
+    if (error) {
+      console.error("Newsletter send failed:", error.message)
+      return {
+        ok: false,
+        message: "The signup could not be sent. Try again in a moment.",
+      }
+    }
+
+    return { ok: true }
   })
 
-  if (error) {
-    console.error("Newsletter send failed:", error.message)
+  if (claim.status === "duplicate") {
     return {
       status: "error",
-      message: "The signup could not be sent. Try again in a moment.",
+      message: "This address has already been sent.",
+      id: crypto.randomUUID(),
+    }
+  }
+
+  if (claim.status === "failed") {
+    return {
+      status: "error",
+      message: claim.message,
       id: crypto.randomUUID(),
     }
   }

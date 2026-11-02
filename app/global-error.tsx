@@ -26,7 +26,7 @@ export default function GlobalError({
     <html lang="en" className={cn("dark", sans.variable, display.variable)}>
       <body className="min-h-svh bg-background font-sans text-foreground antialiased">
         <main className="flex min-h-svh flex-col justify-end px-6 pb-16 md:px-12">
-          <p className="font-heading text-[0.7rem] tracking-[0.28em] text-muted-foreground uppercase">
+          <p className="font-heading text-lg tracking-[0.14em] text-muted-foreground uppercase">
             Fault
           </p>
           <h1 className="mt-4 max-w-4xl font-heading text-[clamp(3rem,8vw,6rem)] leading-[0.86] font-medium tracking-tight text-balance uppercase">

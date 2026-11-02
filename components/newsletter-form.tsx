@@ -33,16 +33,23 @@ export function NewsletterForm() {
     newsletterInitialState
   )
   const formRef = useRef<HTMLFormElement>(null)
+  const submitted = useRef(false)
 
   useEffect(() => {
     if (state.status === "idle") {
       return
     }
 
+    submitted.current = false
+
     if (state.status === "success") {
       toast.success(state.message)
       formRef.current?.reset()
       return
+    }
+
+    if (state.message === "This address has already been sent.") {
+      submitted.current = true
     }
 
     toast.error(state.message)
@@ -56,6 +63,14 @@ export function NewsletterForm() {
       action={formAction}
       noValidate
       className="flex flex-col gap-5"
+      onSubmit={(event) => {
+        if (submitted.current) {
+          event.preventDefault()
+          return
+        }
+
+        submitted.current = true
+      }}
     >
       <FieldGroup>
         <Field data-invalid={invalid ? true : undefined}>
@@ -69,9 +84,12 @@ export function NewsletterForm() {
             placeholder="you@example.com"
             aria-invalid={invalid ? true : undefined}
             aria-describedby="newsletter-help"
+            onChange={() => {
+              submitted.current = false
+            }}
           />
           <FieldDescription id="newsletter-help">
-            One address. We only use it to send the signup to the editor.
+            Each address can be sent once. We only use it to tell the editor.
           </FieldDescription>
           {invalid ? <FieldError>{state.message}</FieldError> : null}
         </Field>
